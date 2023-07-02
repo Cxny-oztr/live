@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Özel Yayın Oynatıcı</title>
+    <style>
+        #videoPlayer {
+            width: 640px;
+            height: 360px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="streamUrlInput" placeholder="Özel Yayın URL'si">
+    <button id="playButton" onclick="playVideo()">Yayını Başlat</button>
+    <div id="videoPlayer"></div>
+
+    <script>
+        function playVideo() {
+            var streamUrl = document.getElementById("streamUrlInput").value;
+
+            if (streamUrl) {
+                var videoPlayer = document.getElementById("videoPlayer");
+
+                // Video player'ı oluştur
+                var video = document.createElement("video");
+                video.src = streamUrl;
+                video.controls = true;
+
+                // Video player'ı sayfaya ekle
+                videoPlayer.innerHTML = "";
+                videoPlayer.appendChild(video);
+            }
+        }
+    </script>
+</body>
+</html>
